@@ -1,0 +1,8 @@
+{
+    "/lyrics": {
+        "target": "https://some-random-api.ml",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
