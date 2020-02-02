@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatInputModule } from '@angular/material';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

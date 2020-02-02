@@ -5,3 +5,45 @@
 </form>
 
 <button mat-raised-button color="primary" (click)="findLyrics()">Search</button>
+
+<mat-accordion *ngIf="lyrics.title !== undefined">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Title</mat-panel-title>
+    </mat-expansion-panel-header>
+    <h2>{{lyrics.title}}</h2>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br>
+
+<mat-accordion *ngIf="lyrics.author !== undefined">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Artist</mat-panel-title>
+    </mat-expansion-panel-header>
+    <h2>{{lyrics.author}}</h2>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br>
+
+<mat-accordion *ngIf="lyrics.lyrics !== undefined">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Lyrics</mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>{{lyrics.lyrics}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br>
+
+<mat-accordion *ngIf="lyrics.thumbnail.genius !== undefined">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Cover</mat-panel-title>
+    </mat-expansion-panel-header>
+    <img src={{lyrics.thumbnail.genius}}/>
+  </mat-expansion-panel>
+</mat-accordion>
