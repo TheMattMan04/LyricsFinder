@@ -9,11 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule, Routes } from '@angular/router';
-
-// const routes: Routes = [
-//   { path: 'lyrics', component: FindlyricsComponent }
-//   // { path: '', redirectTo: '/lyrics', pathMatch: 'full' }
-// ];
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -26,8 +22,8 @@ import { RouterModule, Routes } from '@angular/router';
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatButtonModule
-    // RouterModule.forRoot(routes),
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

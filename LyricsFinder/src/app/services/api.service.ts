@@ -8,12 +8,11 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-
-  url = 'https://some-random-api.ml/lyrics';
+  url = 'http://localhost:3000/api/lyrics';
 
   constructor(private http: HttpClient) { }
 
-  getLyrics(songTitle: string): Observable<Lyric> {
-    return this.http.get<Lyric>(this.url + '?title=' + songTitle);
+  getLyrics(songTitle: string): Observable<any> {
+    return this.http.get<any>(this.url + '?title=' + songTitle);
   }
 }

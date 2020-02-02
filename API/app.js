@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const request = require('request');
 
 const LyricModel = require('./model/Lyric');
 
 var app = express();
+
+app.use(cors());
 
 app.get('/api/lyrics', function(req, result) {
     let title = req.query.title;
