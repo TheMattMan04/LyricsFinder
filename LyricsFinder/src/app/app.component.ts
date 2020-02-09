@@ -24,8 +24,6 @@ export class AppComponent implements OnInit {
   findLyrics() {
     this.service.getLyrics(this.songTitle).subscribe(lyrics => {
         this.lyrics = lyrics;
-
-        console.log(lyrics);
     });
   }
 }

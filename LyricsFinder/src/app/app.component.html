@@ -1,8 +1,8 @@
-<form class="form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Song Title" (input)="setSongTitle($event.target.value)" value="title">
+<!-- <form class="form"> -->
+  <mat-form-field>
+    <input matInput placeholder="Song Title" value="Title" (input)="setSongTitle($event.target.value)">
   </mat-form-field>
-</form>
+<!-- </form> -->
 
 <button mat-raised-button color="primary" (click)="findLyrics()">Search</button>
 
@@ -33,7 +33,7 @@
     <mat-expansion-panel-header>
       <mat-panel-title>Lyrics</mat-panel-title>
     </mat-expansion-panel-header>
-    <p>{{lyrics.lyrics}}</p>
+    <h3>{{lyrics.lyrics}}</h3>
   </mat-expansion-panel>
 </mat-accordion>
 
