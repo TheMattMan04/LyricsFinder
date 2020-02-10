@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Lyric } from '../models/lyric.model';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getLyrics(songTitle: string): Observable<any> {
+  public getLyrics(songTitle: string): Observable<any> {
     return this.http.get<any>(this.url + '?title=' + songTitle);
   }
 }

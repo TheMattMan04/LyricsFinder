@@ -14,8 +14,7 @@ export class AppComponent implements OnInit {
 
   constructor(private service: ApiService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   setSongTitle(title: string) {
     this.songTitle = title;
