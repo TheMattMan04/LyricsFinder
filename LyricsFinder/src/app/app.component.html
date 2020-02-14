@@ -3,10 +3,10 @@
 
   <mat-card-content>
     <mat-form-field>
-      <input matInput placeholder="Song Title" value="Title" (input)="setSongTitle($event.target.value)">
+      <input matInput placeholder="Song Title" (input)="setSongTitle($event.target.value)">
     </mat-form-field>
     
-    <button mat-raised-button color="primary" (click)="findLyrics()">Search</button>
+    <button mat-raised-button (click)="findLyrics()">Search</button>
     
     <div id="accordions">
     <mat-accordion *ngIf="lyrics.title !== undefined">

@@ -9,12 +9,20 @@ mat-form-field {
     margin-left: 30%;
 }
 
+mat-card-content {
+    margin-top: 3%;
+}
+
 button {
     margin-left: 20%;
 }
 
-input {
-   color: blueviolet;
+mat-raised-button {
+    color:bisque;
+}
+
+input matInput{
+   color: bisque;
 }
 
 #accordions {
@@ -28,7 +36,7 @@ mat-expansion-panel {
 }
 
 h2, h3 {
-    color: blueviolet; 
+    color: bisque; 
 }
 
 img {
@@ -39,8 +47,10 @@ mat-card {
     width: 55%;
     margin-top: 1%;
     margin-left: 22%;
+    background-color: gray;
 }
 
 mat-card-title {
-    margin-left: 40%;
+    margin-left: 42%;
+    color: bisque; 
 }
