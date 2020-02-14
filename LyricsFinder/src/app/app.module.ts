@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FindlyricsComponent } from './findlyrics/findlyrics.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,8 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FindlyricsComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
