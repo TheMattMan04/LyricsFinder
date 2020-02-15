@@ -30,6 +30,7 @@ input {
     font-size: 14px;
     font-weight: 500;
     font-family: inherit;
+    font-size: large;
     border-radius: 6px;
     background-color: dimgray;
     border-color: bisque;
@@ -55,19 +56,19 @@ h2, h3 {
 }
 
 img {
-    margin-left: 15%;
+    margin-left: 12%;
 }
 
 mat-card {
     width: 55%;
     margin-top: 1%;
     margin-left: 22%;
-    background-color: gray;
+    background-color: slategray;
 }
 
 mat-card-title {
     margin-left: 45%;
-    color: bisque; 
+    color: gold; 
 }
 
 h3 {
