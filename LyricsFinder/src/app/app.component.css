@@ -15,6 +15,7 @@ mat-card-content {
 
 button {
     margin-left: 20%;
+    padding: 0.5% 4%;
 }
 
 mat-raised-button {
@@ -30,7 +31,13 @@ input {
     font-weight: 500;
     font-family: inherit;
     border-radius: 6px;
-    background-color: antiquewhite;
+    background-color: dimgray;
+    border-color: bisque;
+    color: azure;
+}
+
+::placeholder {
+    color: azure;
 }
 
 #accordions {
@@ -59,7 +66,7 @@ mat-card {
 }
 
 mat-card-title {
-    margin-left: 44%;
+    margin-left: 45%;
     color: bisque; 
 }
 
