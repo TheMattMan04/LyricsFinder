@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
@@ -21,9 +20,9 @@ import { MatCardModule } from '@angular/material/card';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule,
     MatExpansionModule,
     MatCardModule
   ],

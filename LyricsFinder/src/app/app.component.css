@@ -18,11 +18,19 @@ button {
 }
 
 mat-raised-button {
-    color:bisque;
+    color:burlywood;
 }
 
-input matInput{
-   color: bisque;
+input {
+   display: block;
+    width: 150%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    background-color: antiquewhite;
 }
 
 #accordions {
@@ -36,7 +44,7 @@ mat-expansion-panel {
 }
 
 h2, h3 {
-    color: bisque; 
+    color: burlywood; 
 }
 
 img {
@@ -51,7 +59,7 @@ mat-card {
 }
 
 mat-card-title {
-    margin-left: 42%;
+    margin-left: 44%;
     color: bisque; 
 }
 
