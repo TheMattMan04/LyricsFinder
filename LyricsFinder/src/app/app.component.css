@@ -54,3 +54,7 @@ mat-card-title {
     margin-left: 42%;
     color: bisque; 
 }
+
+h3 {
+    white-space: pre-line;
+}
