@@ -1,28 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from './services/api.service'
-import { Lyric } from './models/lyric.model';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  
-  songTitle: string;
-  lyrics: Lyric;
+export class AppComponent {
 
-  constructor(private service: ApiService) {}
-
-  ngOnInit() {}
-
-  setSongTitle(title: string) {
-    this.songTitle = title;
-  }
-
-  findLyrics() {
-    this.service.getLyrics(this.songTitle).subscribe(lyrics => {
-        this.lyrics = lyrics;
-    });
-  }
 }
