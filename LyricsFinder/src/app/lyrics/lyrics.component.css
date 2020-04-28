@@ -67,8 +67,9 @@ mat-card {
 }
 
 mat-card-title {
-  margin-left: 45%;
+  margin-left: 42%;
   color: gold;
+  font-size: xx-large;
 }
 
 h3 {
