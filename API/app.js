@@ -4,7 +4,7 @@ const request = require('request');
 
 const LyricModel = require('./model/Lyric');
 
-var app = express();
+const app = express();
 
 app.use(cors());
 
@@ -30,6 +30,4 @@ app.get('/api/lyrics', function(req, result) {
     });
 });
 
-app.listen(3000, () => {
-    console.log('App listening...');
-});
+module.exports = app;
