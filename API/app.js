@@ -1,41 +1,78 @@
-const express = require('express');
-const cors = require('cors');
-const request = require('request');
-const mongoose = require('mongoose');
-require('dotenv/config');
+const express = require("express");
+const cors = require("cors");
+const request = require("request");
+const mongoose = require("mongoose");
+require("dotenv/config");
 
-const LyricModel = require('./model/Lyric');
+const Lyric = require("./models/Lyric");
+const LyricSchema = require("./models/LyricSchema");
 
 const app = express();
 app.use(cors());
 
-mongoose.connect(process.env.DB_CONNECTION)
-    .then(() => {
-        console.log('Connected to DB');
+mongoose
+  .connect(process.env.DB_CONNECTION)
+  .then(() => {
+    console.log("Connected to DB");
+  })
+  .catch((e) => {
+    console.log("Connection error: " + e);
+  });
+
+app.get("/api/lyrics", (req, result, next) => {
+  let title = req.query.title;
+  let lyric = new Lyric();
+
+  request(process.env.API_CONNECTION + title + "", function (err, res, body) {
+    if (!err) {
+      let parseBody = JSON.parse(body);
+
+      lyric.title = parseBody.title;
+      lyric.author = parseBody.author;
+      lyric.lyrics = parseBody.lyrics;
+      lyric.thumbnail = parseBody.thumbnail;
+      lyric.links = parseBody.links;
+
+      const lyricSchema = new LyricSchema({
+        title: lyric.title,
+        author: lyric.author,
+        lyrics: lyric.lyrics,
+        thumbnail: lyric.thumbnail.genius,
+        links: lyric.links.genius,
+        dateTimeSearched: Date.now()
+      });
+
+      lyricSchema
+        .save()
+        .then((savedHistory) => {
+          console.log("Lyric saved to history: ");
+        })
+        .catch((e) => {
+          console.log("Error: " + e);
+        });
+      result.status(200).send(lyric);
+    } else {
+      result.status(500).json({
+        message: "Error",
+        result: err,
+      });
+    }
+  });
+});
+
+app.get("/api/lyrics/history", (req, res, next) => {
+  LyricSchema.find()
+    .then((returnedLyrics) => {
+      res.status(200).json({
+        status: "Success",
+        response: returnedLyrics,
+      });
     })
-    .catch((e) => {
-        console.log('Connection error: ' + e);
-    });
-
-app.get('/api/lyrics', function(req, result) {
-    let title = req.query.title;
-    let lyric = new LyricModel();
-
-    request('https://some-random-api.ml/lyrics?title='+title+'', function(err, res, body) {
-        if(!err) {
-           let parseBody = JSON.parse(body);
-           
-           lyric.title = parseBody.title;
-           lyric.author = parseBody.author;
-           lyric.lyrics = parseBody.lyrics;
-           lyric.thumbnail = parseBody.thumbnail;
-           lyric.links = parseBody.links;
-
-           result.send(lyric);
-        }
-        else {
-            result.send(err);
-        }
+    .catch((err) => {
+      res.status(500).json({
+        status: "Error",
+        response: err,
+      });
     });
 });
 
