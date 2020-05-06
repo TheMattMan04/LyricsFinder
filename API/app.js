@@ -65,7 +65,7 @@ app.get("/api/lyrics/history", (req, res, next) => {
     .then((returnedLyrics) => {
       res.status(200).json({
         status: "Success",
-        response: returnedLyrics,
+        searchHistory: returnedLyrics,
       });
     })
     .catch((err) => {

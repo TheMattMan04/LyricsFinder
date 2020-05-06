@@ -11,11 +11,13 @@ import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LyricsComponent } from './lyrics/lyrics.component';
+import { SearchHistoryComponent } from './search-history/search-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LyricsComponent
+    LyricsComponent,
+    SearchHistoryComponent
   ],
   imports: [
     BrowserModule,
