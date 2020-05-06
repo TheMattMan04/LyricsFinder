@@ -75,3 +75,8 @@ mat-card-title {
 h3 {
   white-space: pre-line;
 }
+
+mat-spinner {
+  margin: auto;
+  color: burlywood;
+}

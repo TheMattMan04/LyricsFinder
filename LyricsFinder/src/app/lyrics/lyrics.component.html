@@ -8,7 +8,9 @@
 
     <button mat-raised-button (click)="findLyrics()">Search</button>
 
-    <div id="accordions">
+    <mat-spinner color="warn" *ngIf="isLoading"></mat-spinner>
+
+    <div id="accordions" *ngIf="!isLoading">
     <mat-accordion *ngIf="lyrics.title !== undefined">
       <mat-expansion-panel>
         <mat-expansion-panel-header>

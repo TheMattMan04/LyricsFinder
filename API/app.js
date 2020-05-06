@@ -39,7 +39,7 @@ app.get("/api/lyrics", (req, result, next) => {
         lyrics: lyric.lyrics,
         thumbnail: lyric.thumbnail.genius,
         links: lyric.links.genius,
-        dateTimeSearched: Date.now()
+        dateTimeSearched: Date.now(),
       });
 
       lyricSchema
@@ -72,6 +72,61 @@ app.get("/api/lyrics/history", (req, res, next) => {
       res.status(500).json({
         status: "Error",
         response: err,
+      });
+    });
+});
+
+app.get("/api/lyrics/history/:id", (req, res, next) => {
+  let lyricId = req.params.id;
+
+  LyricSchema.findById(lyricId)
+    .then((response) => {
+      res.status(200).json({
+        status: "Success",
+        response: response
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        status: "Error",
+        response: err,
+      });
+    });
+});
+
+app.delete("/api/lyrics/history", (req, res, next) => {
+  LyricSchema.remove()
+    .then((response) => {
+      res.status(200).json({
+        status: "Lyrics removed",
+        removedLyricsCount: response.deletedCount,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        status: "Error",
+        response: err,
+      });
+    });
+});
+
+app.delete("/api/lyrics/history/:id", (req, res, next) => {
+  let lyricId = req.params.id;
+
+  LyricSchema.deleteOne({ _id: lyricId })
+    .then((response) => {
+      res.status(200).json({
+        status: "Lyric removed",
+        removedLyricsCount: response.deletedCount,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        status: "Error",
+        response: {
+          reason: "Lyric not found",
+          error: err,
+        },
       });
     });
 });

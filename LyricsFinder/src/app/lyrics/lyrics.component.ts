@@ -10,8 +10,9 @@ import { Subscription } from 'rxjs';
 })
 export class LyricsComponent implements OnInit, OnDestroy {
   private songTitle: string;
-  private lyrics: Lyric;
   private subscription: Subscription;
+  public lyrics: Lyric;
+  public isLoading = false;
 
   constructor(private service: ApiService) {}
 
@@ -26,7 +27,11 @@ export class LyricsComponent implements OnInit, OnDestroy {
   }
 
   findLyrics() {
-    this.subscription = this.service.getLyrics(this.songTitle).subscribe(lyrics => {
+    this.isLoading = true;
+
+    this.subscription = this.service.getLyrics(this.songTitle)
+      .subscribe(lyrics => {
+        this.isLoading = false;
         this.lyrics = lyrics;
     });
   }

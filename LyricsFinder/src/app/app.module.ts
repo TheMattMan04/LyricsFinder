@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatProgressSpinnerModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 
@@ -26,7 +26,8 @@ import { LyricsComponent } from './lyrics/lyrics.component';
     MatFormFieldModule,
     MatButtonModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
