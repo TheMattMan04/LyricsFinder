@@ -1,1 +1,18 @@
+<mat-card>
+  <mat-card-title>Search History</mat-card-title>
 
+  <mat-spinner color="warn" *ngIf="isLoading"></mat-spinner>
+
+  <mat-card-content *ngIf="!isLoading">
+    <div id="accordions" *ngFor="let history of searchHistoryList">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{ history.title + ' ' +  '-' + ' ' + history.author }}</mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <br/>
+    </div>
+  </mat-card-content>
+</mat-card>

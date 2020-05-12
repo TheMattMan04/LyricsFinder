@@ -8,19 +8,15 @@ import { Subscription } from 'rxjs';
   templateUrl: './lyrics.component.html',
   styleUrls: ['./lyrics.component.css']
 })
-export class LyricsComponent implements OnInit, OnDestroy {
+export class LyricsComponent implements OnInit {
   private songTitle: string;
-  private subscription: Subscription;
   public lyrics: Lyric;
   public isLoading = false;
+  subscription: Subscription;
 
   constructor(private service: ApiService) {}
 
   ngOnInit() {}
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 
   setSongTitle(title: string) {
     this.songTitle = title;

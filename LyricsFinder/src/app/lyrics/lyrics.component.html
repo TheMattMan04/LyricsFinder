@@ -3,56 +3,61 @@
 
   <mat-card-content>
     <mat-form-field>
-      <input placeholder="Song Title" (input)="setSongTitle($event.target.value)">
+      <input
+        placeholder="Song Title"
+        (input)="setSongTitle($event.target.value)"
+      />
     </mat-form-field>
 
-    <button mat-raised-button (click)="findLyrics()">Search</button>
+    <div id="buttons">
+      <button mat-raised-button (click)="findLyrics()">Search</button>
+      <a mat-raised-button [routerLink]="['/history']">History</a>
+    </div>
 
     <mat-spinner color="warn" *ngIf="isLoading"></mat-spinner>
 
     <div id="accordions" *ngIf="!isLoading">
-    <mat-accordion *ngIf="lyrics.title !== undefined">
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Title</mat-panel-title>
-        </mat-expansion-panel-header>
-        <h2>{{lyrics.title}}</h2>
-      </mat-expansion-panel>
-    </mat-accordion>
+      <mat-accordion *ngIf="lyrics.title !== undefined">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Title</mat-panel-title>
+          </mat-expansion-panel-header>
+          <h2>{{ lyrics.title }}</h2>
+        </mat-expansion-panel>
+      </mat-accordion>
 
-    <br>
+      <br />
 
-    <mat-accordion *ngIf="lyrics.author !== undefined">
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Artist</mat-panel-title>
-        </mat-expansion-panel-header>
-        <h2>{{lyrics.author}}</h2>
-      </mat-expansion-panel>
-    </mat-accordion>
+      <mat-accordion *ngIf="lyrics.author !== undefined">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Artist</mat-panel-title>
+          </mat-expansion-panel-header>
+          <h2>{{ lyrics.author }}</h2>
+        </mat-expansion-panel>
+      </mat-accordion>
 
-    <br>
+      <br />
 
-    <mat-accordion *ngIf="lyrics.lyrics !== undefined">
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Lyrics</mat-panel-title>
-        </mat-expansion-panel-header>
-        <h3>{{lyrics.lyrics}}</h3>
-      </mat-expansion-panel>
-    </mat-accordion>
+      <mat-accordion *ngIf="lyrics.lyrics !== undefined">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Lyrics</mat-panel-title>
+          </mat-expansion-panel-header>
+          <h3>{{ lyrics.lyrics }}</h3>
+        </mat-expansion-panel>
+      </mat-accordion>
 
-    <br>
+      <br />
 
-    <mat-accordion *ngIf="lyrics.thumbnail.genius !== undefined">
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Cover</mat-panel-title>
-        </mat-expansion-panel-header>
-        <img src={{lyrics.thumbnail.genius}}/>
-      </mat-expansion-panel>
-    </mat-accordion>
+      <mat-accordion *ngIf="lyrics.thumbnail.genius !== undefined">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Cover</mat-panel-title>
+          </mat-expansion-panel-header>
+          <img src="{{ lyrics.thumbnail.genius }}" />
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
   </mat-card-content>
-
 </mat-card>

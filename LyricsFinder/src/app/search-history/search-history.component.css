@@ -1,0 +1,21 @@
+mat-card {
+  width: 55%;
+  margin-top: 1%;
+  margin-left: 22%;
+  background-color: dimgray;
+}
+
+mat-card-content {
+  padding-top: 2%;
+}
+
+mat-card-title {
+  margin-left: 38%;
+  color: burlywood;
+  font-size: xx-large;
+}
+
+mat-spinner {
+  margin: auto;
+  color: burlywood;
+}

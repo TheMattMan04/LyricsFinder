@@ -13,9 +13,13 @@ mat-card-content {
   margin-top: 3%;
 }
 
-button {
+#buttons {
+  display: inline;
   margin-left: 20%;
-  padding: 0.5% 4%;
+}
+
+button {
+  padding: 0.5% 3%;
 }
 
 mat-raised-button {
