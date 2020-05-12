@@ -8,8 +8,14 @@
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title>{{ history.title + ' ' +  '-' + ' ' + history.author }}</mat-panel-title>
+            <mat-panel-title>
+              <h3>{{ history.title + ' ' +  '-' + ' ' + history.author }}</h3>
+            </mat-panel-title>
           </mat-expansion-panel-header>
+          <img src="{{ history.thumbnail }}" />
+          <mat-action-row>
+            <button mat-button color="warn" (click)="removeById(history._id)">Delete</button>
+          </mat-action-row>
         </mat-expansion-panel>
       </mat-accordion>
       <br/>

@@ -20,6 +20,21 @@ export class SearchHistoryComponent implements OnInit {
       .subscribe(history => {
         this.isLoading = false;
         this.searchHistoryList = history.searchHistory;
+        console.log(this.searchHistoryList);
+      });
+  }
+
+  removeAll() {
+
+  }
+
+  removeById(id: string) {
+    this.isLoading = true;
+    this.service.removeHistoryById(id)
+      .subscribe(result => {
+        this.searchHistoryList = this.searchHistoryList.filter(h => h._id !== id);
+        console.log(this.searchHistoryList);
+        this.isLoading = false;
       });
   }
 }

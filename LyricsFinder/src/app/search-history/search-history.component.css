@@ -19,3 +19,15 @@ mat-spinner {
   margin: auto;
   color: burlywood;
 }
+
+mat-panel-title h3 {
+  margin: auto;
+  color: burlywood;
+}
+
+mat-expansion-panel img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
