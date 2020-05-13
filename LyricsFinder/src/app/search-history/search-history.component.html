@@ -1,5 +1,8 @@
 <mat-card>
   <mat-card-title>Search History</mat-card-title>
+  <button mat-button color="warn" id="removeAllButton" *ngIf="searchHistoryList.length != 0">
+    <i (click)="removeAll()" class="material-icons">delete_outline</i>
+  </button>
 
   <mat-spinner color="warn" *ngIf="isLoading"></mat-spinner>
 
@@ -9,16 +12,18 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <h3>{{ history.title + ' ' +  '-' + ' ' + history.author }}</h3>
+              <h3>{{ history.title + " " + "-" + " " + history.author }}</h3>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <img src="{{ history.thumbnail }}" />
           <mat-action-row>
-            <button mat-button color="warn" (click)="removeById(history._id)">Delete</button>
+            <button mat-button color="warn">
+              <i (click)="removeById(history._id)" class="material-icons">delete_outline</i>
+            </button>
           </mat-action-row>
         </mat-expansion-panel>
       </mat-accordion>
-      <br/>
+      <br />
     </div>
   </mat-card-content>
 </mat-card>

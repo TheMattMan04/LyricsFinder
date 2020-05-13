@@ -15,17 +15,27 @@ export class SearchHistoryComponent implements OnInit {
   constructor(private service: ApiService, public route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.getSearches();
+  }
+
+  getSearches() {
     this.isLoading = true;
     this.service.getSearchHistory()
       .subscribe(history => {
         this.isLoading = false;
         this.searchHistoryList = history.searchHistory;
-        console.log(this.searchHistoryList);
       });
   }
 
   removeAll() {
-
+    this.isLoading = true;
+    this.service.removeHistory()
+      .subscribe(result => {
+        if (result.status === 'Success') {
+          this.searchHistoryList = [];
+          this.isLoading = false;
+        }
+      });
   }
 
   removeById(id: string) {

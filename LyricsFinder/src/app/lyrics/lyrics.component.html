@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title>Lyric Finder</mat-card-title>
+  <mat-card-title>Song Finder</mat-card-title>
 
   <mat-card-content>
     <mat-form-field>
@@ -11,7 +11,6 @@
 
     <div id="buttons">
       <button mat-raised-button (click)="findLyrics()">Search</button>
-      <a mat-raised-button [routerLink]="['/history']">History</a>
     </div>
 
     <mat-spinner color="warn" *ngIf="isLoading"></mat-spinner>

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatInputModule, MatProgressSpinnerModule, MatToolbarModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
@@ -13,12 +13,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LyricsComponent } from './lyrics/lyrics.component';
 import { SearchHistoryComponent } from './search-history/search-history.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LyricsComponent,
-    SearchHistoryComponent
+    SearchHistoryComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { SearchHistoryComponent } from './search-history/search-history.componen
     MatButtonModule,
     MatExpansionModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -98,7 +98,7 @@ app.delete("/api/lyrics/history", (req, res, next) => {
   LyricSchema.remove()
     .then((response) => {
       res.status(200).json({
-        status: "Lyrics removed",
+        status: "Success",
         removedLyricsCount: response.deletedCount,
       });
     })
@@ -116,7 +116,7 @@ app.delete("/api/lyrics/history/:id", (req, res, next) => {
   LyricSchema.deleteOne({ _id: lyricId })
     .then((response) => {
       res.status(200).json({
-        status: "Lyric removed",
+        status: "Success",
         removedLyricsCount: response.deletedCount,
       });
     })
