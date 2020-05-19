@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { PageEvent } from '@angular/material';
 
-import { ApiService } from '../services/api.service';
+import { HistoryService } from '../services/history.service';
 
 @Component({
   selector: 'search-history',
@@ -11,11 +11,17 @@ import { ApiService } from '../services/api.service';
 export class SearchHistoryComponent implements OnInit {
   public isLoading = false;
   public searchHistoryList = [];
+  public postsPerPage = 5;
+  public pageSizeOptions = [5, 10, 20];
 
-  constructor(private service: ApiService, public route: ActivatedRoute) {}
+  constructor(private service: HistoryService) {}
 
   ngOnInit() {
     this.getSearches();
+  }
+
+  onChangedPage(pageData: PageEvent) {
+    console.log(pageData);
   }
 
   getSearches() {
