@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PageEvent } from '@angular/material';
+import { Subscription } from 'rxjs';
 
 import { HistoryService } from '../services/history.service';
 
@@ -8,29 +9,27 @@ import { HistoryService } from '../services/history.service';
   templateUrl: './search-history.component.html',
   styleUrls: ['./search-history.component.css']
 })
-export class SearchHistoryComponent implements OnInit {
+export class SearchHistoryComponent implements OnInit, OnDestroy {
   public isLoading = false;
   public searchHistoryList = [];
   public postsPerPage = 5;
   public pageSizeOptions = [5, 10, 20];
 
+  private searches: Subscription;
+
   constructor(private service: HistoryService) {}
 
   ngOnInit() {
-    this.getSearches();
+    this.isLoading = true;
+    this.searches = this.service.getSearchHistory()
+      .subscribe(history => {
+        this.isLoading = false;
+        this.searchHistoryList = history.searchHistory;
+      })
   }
 
   onChangedPage(pageData: PageEvent) {
     console.log(pageData);
-  }
-
-  getSearches() {
-    this.isLoading = true;
-    this.service.getSearchHistory()
-      .subscribe(history => {
-        this.isLoading = false;
-        this.searchHistoryList = history.searchHistory;
-      });
   }
 
   removeAll() {
@@ -52,5 +51,9 @@ export class SearchHistoryComponent implements OnInit {
         console.log(this.searchHistoryList);
         this.isLoading = false;
       });
+  }
+
+  ngOnDestroy() {
+    this.searches.unsubscribe();
   }
 }
