@@ -1,4 +1,4 @@
 # LyricsFinder
-Angular app used to find song lyrics
+MEAN stack app to find song lyrics.
 
 API: https://some-random-api.ml/lyrics
