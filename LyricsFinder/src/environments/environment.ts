@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  lyricsUrl: "http://localhost:3000/api/lyrics/",
+  historyUrl: "http://localhost:3000/api/lyrics/history/"
 };
 
 /*
